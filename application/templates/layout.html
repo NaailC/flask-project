@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>DnB Bangers - {{ title}}</title>
+    </head>
+    <body>
+        <h1>DnB Bangers - {{ title }}</h1>
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('newsong') }}">add</a>
+        <a href="{{ url_for('artists') }}">artists</a>"
+        {% block body %}
+        {% endblock body %}
+    </body>
+</html>
