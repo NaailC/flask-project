@@ -12,7 +12,7 @@ songartist_table = db.Table('song_artist', db.Model.metadata,
 class Artist(db.Model):
     artist_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     artist_name = db.Column(db.String(30), nullable=False, unique=True)
-    songs = db.relationship("Songs", secondary=songartist_table)
+
 
 # Create Songs Class and Table  
 class Songs(db.Model):
