@@ -21,13 +21,25 @@ def newsong():
     if request.method == 'POST':
         if form.validate_on_submit():
             new_song = Songs(song_name=form.song_name.data)
-            artist = Artists(artist_name=form.artist_name.data)
+            artist = Artist(artist_name=form.artist_name.data)
             # Add + Commit session to db
             db.session.add(new_song)
             db.session.commit()
             return redirect(url_for("home"))
     # Render add html template 
-    return render_template("add.html", title="Add a Song", form=form)
+    return render_template("newsong.html", title="Add a Song", form=form)
+
+@app.route("/newartist", methods=['GET','POST'])
+def newartist():
+    form = ArtistForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            new_artist = Artist(new_artist=form.artist_name.data)
+            db.session.add(new_artist)
+            db.session.commit
+            return redirect(url_for("home"))
+    
+    return render_template("newartist.html", title="Add an Artists", form=form)
 
 @app.route("/artists", methods=['GET','POST'])
 def artists():
@@ -35,3 +47,11 @@ def artists():
     output = ""
     return render_template("artists.html", title="Artists", all_artists=all_artists)
 
+@app.route("/update/<int:id>", methods=['GET', 'POST'])
+def update(id):
+    form = SongForm()
+    song = Songs.query.filter_by(id=id).first()
+    if request.method == 'POST':
+        song.song_name = form.song_name.data
+        db.session.commit()
+        return redirect(url_for("home"))

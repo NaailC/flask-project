@@ -9,4 +9,8 @@ class SongForm(FlaskForm):
     artist_name = StringField('Artist Name', choices=Songs.artist_name validators=[DataRequired()})
     submit = SubmitField('Accept')
 
+class ArtistForm(FlaskForm):
+    new_artist_name = StringField('Add Artist Name', validators=[DataRequired()])
+    submit = SubmitField('Accept')
+
 
