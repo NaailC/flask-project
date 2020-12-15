@@ -20,13 +20,10 @@ def newsong():
     # Request POST 
     if request.method == 'POST':
         if form.validate_on_submit():
-            # Song form 
             new_song = Songs(song_name=form.song_name.data)
-            # Artist form
             artist = Artists(artist_name=form.artist_name.data)
-            # Add session to db
+            # Add + Commit session to db
             db.session.add(new_song)
-            # Commit session to db
             db.session.commit()
             return redirect(url_for("home"))
     # Render add html template 
