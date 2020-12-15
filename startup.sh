@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd /opt/dnbdatabase
 sudo mkdir /flaskproject
 sudo chown -R /flaskproject
