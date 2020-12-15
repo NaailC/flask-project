@@ -1,5 +1,5 @@
 from application import app, db
-from application.models import Tasks
+from application.models import Songs, Artist
 from flask import render_template, request, url_for, redirect
 
 # Create a home-page that shows all songs added to the database

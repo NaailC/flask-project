@@ -1,5 +1,5 @@
-sudo mkdir flaskproject 
-sudo apt-get install python3-venv -y
+cd /opt/dnbdatabase
+sudo mkdir /flaskproject
 sudo chown -R /flaskproject
 sudo python3 -m venv venv
 source venv/bin/activate
