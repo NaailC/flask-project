@@ -1,8 +1,19 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-<h2>Songs</h2>
-{% for song in all_songs %}
-    
+    <h2>Songs</h2>
+        {% for song in all_songs %}
+            {{ song.song_name }}
+        <br>
+            {{ song.date_created }}
+        <br>
+            {{ song.artist_name} }
+            <form action="{{ url_for('update', id=Songs.id) }}">
+                <input type=submit value='Update Task'>
+            </form>
+            <form action="{{ url_for('delete', id=Songs.id) }}">
+                <input type=submit value='Delete Task'>
+            </form>
+            {% endif %}
 
 {% endblock body %}
