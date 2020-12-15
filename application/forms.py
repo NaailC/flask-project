@@ -2,6 +2,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
+from application.models import Songs, Artist
 
 # Create Form Class to Update Song Name CRUD app 
 class SongForm(FlaskForm):

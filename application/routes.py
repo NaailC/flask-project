@@ -7,7 +7,7 @@ from flask import render_template, request, url_for, redirect
 @app.route("/home")
 def home():
     # Find all songs
-    all_songs = SongArtist.query.all()
+    all_songs = Songs.query.all()
     output = ""
     # Render home html template
     return render_template("home.html", title="Home", all_songs=all_songs)
