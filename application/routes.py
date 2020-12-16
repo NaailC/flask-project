@@ -46,7 +46,7 @@ def newartist():
 # View all artists
 @app.route("/artists", methods=['GET','POST'])
 def artists():
-    all_artists = Artists.query.all()
+    all_artists = Artist.query.all()
     output = ""
     return render_template("artists.html", title="Artists", all_artists=all_artists)
 
