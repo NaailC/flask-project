@@ -1,1 +1,10 @@
 {% extends 'layout.html' %}
+{% block body %}
+
+<h2>Artists</h2>
+        {% for artist in all_artist %}
+            {{ artist.id }}
+            {{ artist.artist_name }}
+        {% endfor %}
+
+{% endblock body %}
