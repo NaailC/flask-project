@@ -32,7 +32,7 @@ def newsong():
 
 # Add an artist to the database
 @app.route("/newartist", methods=['GET','POST'])
-def newartist():
+def newartist(id):
     form = ArtistForm()
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -44,8 +44,8 @@ def newartist():
     return render_template("newartist.html", title="Add an Artists", form=form)
 
 # View all artists
-@app.route("/artists", methods=['GET','POST'])
-def artists():
+@app.route("/artists/<int:id>", methods=['GET','POST'])
+def artists(id):
     all_artists = Artists.query.all()
     output = ""
     return render_template("artists.html", title="Artists", all_artists=all_artists)
