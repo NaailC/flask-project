@@ -12,7 +12,7 @@ class SongForm(FlaskForm):
     submitsong = SubmitField('Accept')
 
 class ArtistForm(FlaskForm):
-    new_artist_name = StringField('Add Artist Name', validators=[DataRequired()])
+    artist_name = StringField('Add Artist Name', validators=[DataRequired()])
     submitartist = SubmitField('Accept')
 
 

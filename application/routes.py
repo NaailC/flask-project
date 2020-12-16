@@ -36,7 +36,7 @@ def newartist():
     form = ArtistForm()
     if request.method == 'POST':
         if form.validate_on_submit():
-            new_artist = form.new_artist_name.data
+            new_artist = form.artist_name.data
             db.session.add(new_artist)
             db.session.commit()
             return redirect(url_for("home"))
