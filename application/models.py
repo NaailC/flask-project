@@ -15,7 +15,7 @@ class Songs(db.Model):
     __tablename__= 'songs'
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
-    artist_name = relationship("Artist", backref=backref("artist", uselist=False))
+    artist_name = db.relationship("Artist", backref=backref("artist", uselist=False))
     
     song_name = db.Column(db.String(60), nullable=False)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
