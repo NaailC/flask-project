@@ -44,8 +44,8 @@ def newartist(id):
     return render_template("newartist.html", title="Add an Artists", form=form)
 
 # View all artists
-@app.route("/artists/<int:id>", methods=['GET','POST'])
-def artists(id):
+@app.route("/artists", methods=['GET','POST'])
+def artists():
     all_artists = Artists.query.all()
     output = ""
     return render_template("artists.html", title="Artists", all_artists=all_artists)
