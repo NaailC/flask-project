@@ -21,8 +21,7 @@ def newsong():
     # Request POST 
     if request.method == 'POST':
         if form.validate_on_submit():
-            new_song = Songs(song_name=form.song_name.data)
-            artist = Songs(artist_name=form.artist_name.data)
+            new_song = Songs(form.song_name.data, form.artist_name.data)
             # Add + Commit session to db
             db.session.add(new_song)
             db.session.commit()

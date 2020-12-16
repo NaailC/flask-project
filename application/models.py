@@ -13,5 +13,5 @@ class Artist(db.Model):
 class Songs(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     song_name = db.Column(db.String(60), nullable=False)
-    artist_name = db.Column(db.ForeignKey('artist.id'), nullable=False)
+    artist_id = db.Column(db.ForeignKey('artist.id'), nullable=False)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
