@@ -32,7 +32,7 @@ def newsong():
 
 # Add an artist to the database
 @app.route("/newartist", methods=['GET','POST'])
-def newartist(id):
+def newartist():
     form = ArtistForm()
     if request.method == 'POST':
         if form.validate_on_submit():
