@@ -43,11 +43,11 @@ def newartist():
     return render_template("newartist.html", title="Add an Artists", form=form)
 
 # View all artists
-@app.route("/artists", methods=['GET','POST'])
-def artists():
-    all_artists = Artist.query.first()
+@app.route("/artists/<int:id>", methods=['GET','POST'])
+def artists(id):
+    artists = Artist.query.all()
     output = ""
-    return render_template("artists.html", title="Artists", all_artists=all_artists)
+    return render_template("artists.html", title="Artists", artists=artists)
 
 # Update the song name & artist
 @app.route("/update/<int:id>", methods=['GET', 'POST'])
