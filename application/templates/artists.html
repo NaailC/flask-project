@@ -2,9 +2,9 @@
 {% block body %}
 
 <h2>Artists</h2>
-        {% for Artist in all_artist %}
-            {{ artist.id }}
-            {{ artist.artist_name }}
-        {% endfor %}
+{% for Artist in all_artist %}
+    {{ Artist.id }}
+    {{ Artist.artist_name }}
+{% endfor %}
 
 {% endblock body %}
