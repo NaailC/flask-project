@@ -2,6 +2,7 @@
 {% block body %}
 
 <br><br>
+<div class=form>
 <form action='' method='POST'>
     {{ form.hidden_tag() }}
     {{ form.song_name.label }} {{ form.song_name }}
@@ -10,5 +11,6 @@
     <br>
     {{ form.submit }}
 </form>
+</div>
 
 {% endblock body %} 

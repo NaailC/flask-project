@@ -8,7 +8,13 @@ from flask_testing import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from application import app, db, bcrypt
-from application.models import Users
+from application.models import Songs, Artist
+
+# Set test variables for test admin user
+test_admin_first_name = "Naail"
+test_admin_last_name = "Choudhury"
+test_admin_email = "naailchoudhury@gmail.com"
+test_admin_password = "bigdog"
 
 class TestViews(TestBase):
 #TEST JENKINS SERVER
