@@ -48,7 +48,7 @@ def newartist():
 def artists():
     all_artists = Artists.query.all()
     output = ""
-    return render_template("artists.html", title="Artists", all_artists=all_artists)
+    return render_template("artists.html", title="Artists")
 
 # Update the song name & artist
 @app.route("/update/<int:id>", methods=['GET', 'POST'])
