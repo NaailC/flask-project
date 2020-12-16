@@ -28,7 +28,7 @@ def newsong():
             db.session.commit()
             return redirect(url_for("home"))
     # Render add html template 
-    return render_template("newsong.html", title="Add a Song", form=form, song=song_name, artist=artist)
+    return render_template("newsong.html", title="Add a Song", form=form)
 
 # Add an artist to the database
 @app.route("/newartist", methods=['GET','POST'])
