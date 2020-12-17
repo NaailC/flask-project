@@ -1,14 +1,14 @@
 from application import app, db
-from application.models import Songs, Artist
+from application.models import Song, Artist
 from application.forms import SongForm, ArtistForm
 from flask import render_template, request, url_for, redirect
 
 # Create a home-page that shows all songs added to the database
-@app.route("/")
-@app.route("/home")
+@app.route("/", methods=['GET'])
+@app.route("/home", methods=['GET'])
 def home():
     # Find all songs
-    all_songs = Songs.query.all()
+    all_songs = Song.query.all()
     output = ""
     # Render home html template
     return render_template("home.html", title="Home", all_songs=all_songs)
@@ -55,7 +55,7 @@ def artists():
 @app.route("/update/<int:id>", methods=['GET', 'POST'])
 def update(id):
     form = SongForm()
-    song = Songs.query.filter_by(id=id).first()
+    updatesong = Songs.query.filter_by(id=id).first()
     if request.method == 'POST':
         song.song_name = form.song_name.data
         db.session.commit()
@@ -64,7 +64,7 @@ def update(id):
 # Delete the song 
 @app.route("/delete/<int:id>", methods=['GET','POST'])
 def delete(id):
-    song = Songs.query.filter_by(id=id).first()
-    db.session.delete(song)
+    deletesong = Songs.query.filter_by(id=id).first()
+    db.session.delete(deletesong)
     db.session.commit()
     return redirect(url_for("home"))
