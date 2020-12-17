@@ -6,7 +6,7 @@ from datetime import datetime
 # Create Artist Class and Table and allow a relationship 
 class Artist(db.Model):
     __tablename__= 'artist'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    artist_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     artist_name = db.Column(db.String(30), nullable=False, unique=True)
     song_name = db.relationship("Songs", backref=db.backref("songs", uselist=False))
 
