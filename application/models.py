@@ -9,7 +9,7 @@ class Artist(db.Model):
     __tablename__= 'artist'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     artist_name = db.Column(db.String(30), nullable=False, unique=True)
-    song_name = db.relationship("Songs", backref=db.backref("songs", lazy='dynamic', uselist=True))
+    song_name = db.relationship("Songs", back_populates="songs")
 
 # Create Songs Class and Table  
 class Songs(db.Model):
