@@ -8,7 +8,6 @@ from flask import render_template, request, url_for, redirect
 @app.route("/home")
 def home():
     # Find all songs
-    Songs = Songs
     all_songs = Songs.query.all(song_name)
     output = ""
     # Render home html template
