@@ -9,7 +9,7 @@ class Artist(db.Model):
     __tablename__= 'artist'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     artist_name = db.Column(db.String(30), nullable=False, unique=True)
-    song_name = db.relationship("Songs", backref=db.backref("songs", lazy='dynamic'))
+    song_name = db.relationship("Songs", backref=db.backref("songs", lazy='dynamic', uselist=True))
 
 # Create Songs Class and Table  
 class Songs(db.Model):
@@ -20,4 +20,4 @@ class Songs(db.Model):
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
-    artists = db.relationship("Artist", backref=db.backref("artist", lazy='dynamic'))
+    artists = db.relationship("Artist", backref=db.backref("artist", lazy='dynamic', uselist=True))
