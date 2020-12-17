@@ -2,12 +2,13 @@
 {% block body %}
 
     <h2>Songs</h2>
-        {% for song_id in all_songs %}
-            {{ song.song_name }}
+    <class>Songs</class>
+        {% for songs in all_songs %}
+            {{ songs.song_name }}
         <br>
-            {{ song.date_created }}
+            {{ songs.date_created }}
         <br>
-            {{ song.artists }}
+            {{ songs.artists }}
             <form action="{{ url_for('update', id=Songs.id) }}">
                 <input type=submit value='Update Song'>
             </form>
