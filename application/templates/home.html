@@ -2,7 +2,6 @@
 {% block body %}
 
     <h2>Songs</h2>
-    <class>{{ Songs, Artist }}</class>
         {% for songs in all_songs %}
             {{ songs.song_name }}
         <br>
@@ -16,6 +15,6 @@
                 <input type=submit value='Delete Song'>
             </form>
         {% endfor %}
-    
+       
 
 {% endblock body %}
