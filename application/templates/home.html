@@ -2,7 +2,7 @@
 {% block body %}
 
     <h2>Songs</h2>
-        {% for Song in all_songs %}
+        {% for song_id in all_songs %}
             {{ song.song_name }}
         <br>
             {{ song.date_created }}
