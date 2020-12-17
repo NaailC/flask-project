@@ -7,7 +7,7 @@
         <br>
             {{ song.date_created }}
         <br>
-            {{ song.artist_id }}
+            {{ song_artist_id FROM Songs }}
             <form action="{{ url_for('update', id=Songs.id) }}">
                 <input type=submit value='Update Song'>
             </form>
