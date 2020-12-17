@@ -8,10 +8,11 @@ from flask import render_template, request, url_for, redirect
 @app.route("/home")
 def home():
     # Find all songs
+    song_name = song_name
     all_songs = Songs.query.all(song_name)
     output = ""
     # Render home html template
-    return render_template("home.html", title="Home", all_songs=all_songs)
+    return render_template("home.html", title="Home", all_songs=all_songs, song_name=song_name)
 
 # Add a song to the database
 @app.route("/newsong", methods=['GET','POST'])
