@@ -8,7 +8,8 @@ from flask import render_template, request, url_for, redirect
 @app.route("/home")
 def home():
     # Find all songs
-    all_songs = Songs.query.all()
+    Songs = Songs
+    all_songs = Songs.query.all(song_name)
     output = ""
     # Render home html template
     return render_template("home.html", title="Home", all_songs=all_songs)
@@ -46,7 +47,8 @@ def newartist():
 @app.route("/artists/", methods=['GET','POST'])
 def artists():
     if request.method == 'GET':
-        artists = Artist.query.all()
+        artist_name = Artist.artist_name
+        artists = Artist.query.all(artist_name)
         output = ""
     return render_template("artists.html", title="Artists", artists=artists)
 
