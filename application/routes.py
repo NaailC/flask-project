@@ -43,8 +43,8 @@ def newartist():
     return render_template("newartist.html", title="Add an Artists", form=form)
 
 # View all artists
-@app.route("/artists/<int:id>", methods=['GET','POST'])
-def artists(id):
+@app.route("/artists/", methods=['GET','POST'])
+def artists():
     if request.method == 'GET':
         artists = Artist.query.all()
         output = ""
