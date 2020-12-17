@@ -19,5 +19,5 @@ class Songs(db.Model):
     song_name = db.Column(db.String(60), nullable=False)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-    artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
-    artists = db.relationship("Artist", backref=db.backref("artist", lazy='dynamic', uselist=True))
+    artist_id = db.Column(db.Integer, db.ForeignKey('artist.artist_id'))
+    artists = db.relationship('artist')
