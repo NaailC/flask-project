@@ -10,14 +10,7 @@ class Artist(db.Model):
     __tablename__ = 'artist'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     artist_name = db.Column(db.String(30), nullable=False, unique=True)
-<<<<<<< HEAD
-=======
-
-    songs = db.relationship("Song", backref='artist')
->>>>>>> refs/remotes/origin/main
-
-association_table = db.Table('association_table', db.Model.metadata,
-    db.Column('songs_id', db.Integer, db.ForeignKey('songs.id')))
+    songs = db.relationship('Song', backref='artist', lazy='dynamic')
     
 # Create Songs Class and Table  
 class Song(db.Model):
@@ -26,9 +19,4 @@ class Song(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     song_name = db.Column(db.String(60), nullable=False)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-
-<<<<<<< HEAD
-=======
-    artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
->>>>>>> refs/remotes/origin/main
-    
+    artist_id = db.Column(db.Integer, db.ForeignKey(id))    
