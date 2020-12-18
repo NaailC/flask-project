@@ -1,20 +1,31 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-    <h2>Songs</h2>
-        {% for songs in all_songs %}
-            {{ songs_song_name }}
+    <h2>Drum 'n' Bass Artists</h2>
+        {% for artist in artist %}
+        {% if artist.justdnb == True %}
+            {{ artist.artist_name }}
         <br>
-            {{ songs_date_created }}
+            {{ artist.songs }}
         <br>
-            {{ songs_artists }}
-            <form action="{{ url_for('update', id=Songs.id) }}">
-                <input type=submit value='Update Song'>
+            <form action="{{ url_for('update', id=Artist.id) }}">
+                <input type=submit value='Update Artist'>
             </form>
-            <form action="{{ url_for('delete', id=Songs.id) }}">
-                <input type=submit value='Delete Song'>
-            </form>
+        {% end if %}    
         {% endfor %}
+    
+        <h2>More than just Drum 'n' Bass</h2>
+        {% for artist in artist %}
+        {% if artist.justdnb == False %}
+            {{ artist.artist_name }}
+        <br>
+            {{ artist.songs }}
+        <br>
+            <form action="{{ url_for('update', id=Artist.id) }}">
+                <input type=submit value='Update Artist'>
+            </form>
+        {% end if %}    
+        {% endfor %}    
        
 
 {% endblock body %}

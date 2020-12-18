@@ -8,10 +8,10 @@ from flask import render_template, request, url_for, redirect
 @app.route("/home", methods=['GET'])
 def home():
     # Find all songs
-    all_songs = Song.query.filter_by().all()
-    print(all_songs)
+    artist = Artist.query.all()
+    print(artist)
     # Render home html template
-    return render_template("home.html", title="Home", all_songs=all_songs)
+    return render_template("home.html", title="Home", artist=artist)
 
 # Add a song to the database
 @app.route("/newsong", methods=['GET','POST'])
@@ -42,22 +42,20 @@ def newartist():
     
     return render_template("newartist.html", title="Add an Artists", form=form)
 
-# View all artists
-@app.route("/artists/", methods=['GET','POST'])
-def artists():
-    if request.method == 'GET':
-        artist_name = Artist.artist_name
-        artists = Artist.query.all(artist_name)
-        output = ""
-    return render_template("artists.html", title="Artists", artists=artists)
+@app.route("/justdnb/<int:id>")
+def justdnb(id):
+    Artist = Artist.query.filter_by(id=id).first()
+    artist.justdnb = False
+    db.session.commit()
+    return f"Artist {artist_name} makes more than DnB."
 
-# Update the song name & artist
+# Update the artist
 @app.route("/update/<int:id>", methods=['GET', 'POST'])
 def update(id):
-    form = SongForm()
-    updatesong = Songs.query.filter_by(id=id).first()
+    form = ArtistForm()
+    updateartist = Artist.query.filter_by(id=id).first()
     if request.method == 'POST':
-        song.song_name = form.song_name.data
+        artist.artist_name = form.artist_name.data
         db.session.commit()
         return redirect(url_for("home"))
 
