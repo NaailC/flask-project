@@ -10,14 +10,14 @@ class Artist(db.Model):
     __tablename__ = 'artist'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     artist_name = db.Column(db.String(30), nullable=False, unique=True)
-<<<<<<< HEAD
-=======
-
     songs = db.relationship("Song", backref='artist')
->>>>>>> refs/remotes/origin/main
 
-association_table = db.Table('association_table', db.Model.metadata,
-    db.Column('songs_id', db.Integer, db.ForeignKey('songs.id')))
+    def __init__(self, artist_name):
+        self.artist_name = artist_name
+
+    def __repr__(self):
+        return '<Artist %r>' % self.id
+
     
 # Create Songs Class and Table  
 class Song(db.Model):
@@ -26,9 +26,8 @@ class Song(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     song_name = db.Column(db.String(60), nullable=False)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    artist_id = db.Column(db.Integer, db.ForeignKey('artist.artist_id'))
+    artist = db.relationship('movie')
+    
 
-<<<<<<< HEAD
-=======
-    artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
->>>>>>> refs/remotes/origin/main
     
