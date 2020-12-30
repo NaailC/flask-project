@@ -17,8 +17,10 @@ class Artist(db.Model):
 class Song(db.Model):
 
     __tablename__ = 'song'
+    artist = db.relationship(Artist)
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     song_name = db.Column(db.String(60), nullable=False)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    artist_id = db.Column(db.Integer, db.ForeignKey('artist_id'))
+    artistid = db.Column(db.Integer, db.ForeignKey("artist.id"), nullable=False)
+    
     
