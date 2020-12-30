@@ -1,14 +1,14 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-    <h2>Drum 'n' Bass Artists</h2>
-        {% for artist in artist %}
+    <h2>Songs</h2>
+        {% for songs in songs %}
         {% if artist.justdnb == True %}
             {{ artist.artist_name }}
         <br>
             {{ artist.songs }}
         <br>
-            <form action="{{ url_for('update', id=Artist.id) }}">
+            <form action="{{ url_for('update', id=Song.id) }}">
                 <input type=submit value='Update Artist'>
             </form>
         {% end if %}    
