@@ -8,10 +8,9 @@ from flask import render_template, request, url_for, redirect
 @app.route("/home", methods=['GET'])
 def home():
     # Find all songs
-    artist = Artist.query.all()
-    print(artist)
+    songs = Song.query.all()
     # Render home html template
-    return render_template("home.html", title="Home", artist=artist)
+    return render_template("home.html", title="Home", songs='songs')
 
 # Add a song to the database
 @app.route("/newsong", methods=['GET','POST'])
@@ -41,13 +40,6 @@ def newartist():
             return redirect(url_for("home"))
     
     return render_template("newartist.html", title="Add an Artists", form=form)
-
-@app.route("/justdnb/<int:id>")
-def justdnb(id):
-    Artist = Artist.query.filter_by(id=id).first()
-    artist.justdnb = False
-    db.session.commit()
-    return f"Artist {artist_name} makes more than DnB."
 
 # Update the artist
 @app.route("/update/<int:id>", methods=['GET', 'POST'])
