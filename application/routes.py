@@ -17,7 +17,7 @@ def home():
     # Find all songs
     all_artists = Artist.query.all()
     # Render home html template
-    return render_template("home.html", title="Home", all_songs='all_songs')
+    return render_template("home.html", title="Home", all_artists='all_artists')
 
 # Add a song to the database
 @app.route("/newsong", methods=['GET','POST'])
