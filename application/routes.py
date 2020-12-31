@@ -13,7 +13,7 @@ def home():
     return render_template("home.html", title="Home", all_songs='all_songs')
 
 @app.route("/artist", methods=['GET'])
-def home():
+def artists():
     # Find all songs
     all_artists = Artist.query.all()
     # Render home html template
