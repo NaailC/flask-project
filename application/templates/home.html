@@ -6,7 +6,7 @@
         Artist: {{ artist.artistname }}
         {% for song in all_songs %}
         {% if song.artist == artist.id %}  
-        Songs: {{ song.songname }}
+        Songs: {{ all_songs }}
                 <form action="{{ url_for('update', id=Song.id) }}">
                 <input type=submit value='Update Song'>
             </form>
