@@ -8,11 +8,11 @@ from application.models import Song, Artist
 # Create Form Class to Update Song Name CRUD app 
 class SongForm(FlaskForm):
     songname = StringField('Song Name', validators=[DataRequired()])
-    artistname = SelectField('Artist Name', choices=[('Artist.artistname')], validators=[DataRequired()])
+    artist = SelectField('Artist Name', choices=[(artist.id, artist.artistname)], validators=[DataRequired()])
     submitsong = SubmitField('Accept')
 
 class ArtistForm(FlaskForm):
-    artist_name = StringField('Add Artist', validators=[DataRequired()])
+    artistname = StringField('Add Artist', validators=[DataRequired()])
     submitartist = SubmitField('Accept')
 
 
