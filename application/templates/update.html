@@ -1,11 +1,11 @@
 {% extends 'layout.html' %}
 {% block body %}
 <br><br>
-Original Task: {{ song.song_name }}
+Original Song: {{ song.songname }}
 <br><br>
 <form action='' method='POST'>
     {{ form.hidden_tag() }}
-    {{ form.song_name.label }} {{ form.song_name }}
+    {{ form.songname.label }} {{ form.songname }}
     <br>
     {{ form.submit }}
 </form>
