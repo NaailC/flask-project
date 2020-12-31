@@ -10,7 +10,7 @@ class Artist(db.Model):
     __tablename__ = 'artist'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     artist_name = db.Column(db.String(30), nullable=False, unique=True)
-    songs = db.relationship('Song', backref='artistsongs', lazy='True')
+    songs = db.relationship('Song', backref='artistsongs', lazy='dynamic')
 
     
 # Create Songs Class and Table  
