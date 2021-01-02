@@ -1,19 +1,39 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-    <h2>DnB Songs</h2>
-        {% for artist in all_artists %}
-        Artist: {{ artist.artistname }}
-        {% for song in all_songs %}
-        {% if song.artist == artist.id %}  
-        Songs: {{ all_songs }}
-                <form action="{{ url_for('update', id=Song.id) }}">
-                <input type=submit value='Update Song'>
-            </form>
+<h2>DnB Songs</h2>
 
-        {% endif %}        
-        {% endfor %}
-        {% endfor %}
+<br>
+
+{% for artist in all_artists %}
+<h2>Artists</h2>
+<br>
+    id: {{ artist.id }}
+    <br>
+    Artist Name: {{ artist.artistname }}
+    <br>
+
+
+{% for song in all_songs %}
+{% if song.artist == artist.id %}
+    id: {{ song.id }} 
+    <br>
+    Song Name: {{ song.songname }}
+    <br>
+<br>
+<div style="display: flex;">     
+    <form action="{{ url_for('update', song_id=song.id) }}">
+        <input type=submit value="Update">
+    </form>
+    <form action="{{ url_for('delete', song_id=song.id) }}">
+        <input type=submit value="Delete">
+    </form>
+</div>
+{% endif %}
+{% endfor %}    
+{% endfor %}
+
+<br><br><br>
         
 
 
