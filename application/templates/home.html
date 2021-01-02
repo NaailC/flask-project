@@ -4,33 +4,31 @@
 <h2>DnB Songs</h2>
 
 <br>
-
-{% for artist in all_artists %}
 <h2>Artists</h2>
+{% for artist in all_artists %}
 <br>
-    id: {{ artist.id }}
-    <br>
-    Artist Name: {{ artist.artistname }}
-    <br>
+id: {{ artist.id }}
+<br>
+Artist Name: {{ artist.artistname }}
+<br>
 
-
+<h4>Songs</h4>
 {% for song in all_songs %}
 {% if song.artist == artist.id %}
-    id: {{ song.id }} 
-    <br>
-    Song Name: {{ song.songname }}
-    <br>
-<br>
-<div style="display: flex;">     
-    <form action="{{ url_for('update', song_id=song.id) }}">
-        <input type=submit value="Update">
-    </form>
-    <form action="{{ url_for('delete', song_id=song.id) }}">
-        <input type=submit value="Delete">
-    </form>
-</div>
+id: {{ song.id }} 
+Song Name: {{ song.songname }}
+
+<br><br>
+
+<form action="{{ url_for('update', song_id=song.id) }}" style="display: inline;">
+<input type=submit value="Update">
+</form>
+<form action="{{ url_for('delete', song_id=song.id) }}" style="display: inline;">
+<input type=submit value="Delete">
+</form> 
+
 {% endif %}
-{% endfor %}    
+{% endfor %} 
 {% endfor %}
 
 <br><br><br>

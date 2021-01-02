@@ -8,9 +8,8 @@ Original Song: {{ song.id }}
 <form action='' method='POST'>
     {{ form.hidden_tag() }}
     {{ form.songname.label }} {{ form.songname }}
-    <br>
     {{ form.artistname.label }} {{ form.artistname }}
-    {{ form.submit }}
+    {{ form.submitsong }}
 </form>
 
 {% endblock body %} 
