@@ -49,9 +49,9 @@ def update(id):
     form = SongForm()
     updateartist = Song.query.filter_by(id=id).first()
     if request.method == 'POST':
-        song.song_name = form.song_name.data
+        song.songname = form.songname.data
         db.session.commit()
-        return redirect(url_for("home"))
+        return redirect(url_for("home"), form=form, )
 
 # Delete the song 
 @app.route("/delete/<int:id>", methods=['GET','POST'])
