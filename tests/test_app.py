@@ -81,7 +81,7 @@ class TestCreate(TestBase):
         )
         self.assertIn(b"Add a Song", response.data)
 
-class TestUpdate(TestBase):
+class Test_Update(TestBase):
     def test_update_song(self):
         response = self.client.post(
             url_for("update", id=1),
@@ -90,7 +90,7 @@ class TestUpdate(TestBase):
         )
         self.assertIn(b"Home", response.data)
 
-class TestDelete(TestBase):
+class Test_Delete(TestBase):
     def test_delete_song(self):
         response = self.client.get(
             url_for("delete", id=1),
@@ -104,4 +104,4 @@ class TestDelete(TestBase):
             url_for("deleteartist", id=1),
             follow_redirects=True
         )
-        self.assertNotIn(b"Home", response.data)
+        self.assertIn(b"Home", response.data)

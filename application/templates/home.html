@@ -3,7 +3,6 @@
 
 <h1>DnB Songs</h1>
 
-
 {% for artist in all_artists %}
 <div style="display: inline-block; background-color: rgba(211, 182, 182, 0.5); width: auto; height: auto;">
 <h1>Artist</h1>
@@ -15,8 +14,6 @@
         <input type=submit value="Delete Artist">
     </form>
      
-
-
 <h3>Songs</h3>
 {% for song in all_songs %}
     {% if song.artist == artist.id %}
@@ -31,15 +28,8 @@
             </form>
             <br><br>
         </div>
-    {% endif %}
-    
+    {% endif %} 
 {% endfor %}
 </div>
-
-{% endfor %}
-
-
-        
-
-
+{% endfor %} 
 {% endblock body %}
