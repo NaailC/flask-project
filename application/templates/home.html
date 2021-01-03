@@ -1,37 +1,44 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-<h2>DnB Songs</h2>
+<h1>DnB Songs</h1>
 
-<br>
-<h2>Artists</h2>
+
 {% for artist in all_artists %}
-<br>
-id: {{ artist.id }}
-<br>
-Artist Name: {{ artist.artistname }}
-<br>
+<div style="display: inline-block; background-color: rgba(211, 182, 182, 0.5); width: auto; height: auto;">
+<h1>Artist</h1>
 
-<h4>Songs</h4>
+<div style="display: inline;">
+    <h2>{{ artist.artistname }}</h2>
+    
+    <form action="{{ url_for('deleteartist', id=artist.id) }}">
+        <input type=submit value="Delete Artist">
+    </form>
+     
+
+
+<h3>Songs</h3>
 {% for song in all_songs %}
-{% if song.artist == artist.id %}
-id: {{ song.id }} 
-Song Name: {{ song.songname }}
+    {% if song.artist == artist.id %}
+        <h4>{{ song.songname }}</h4>
+        added on {{ song.dateadded }}<br>
+        <div style="display: flex;">     
+            <form action="{{ url_for('update', id=song.id) }}">
+                <input type=submit value="Update">
+            </form>
+            <form action="{{ url_for('delete', id=song.id) }}">
+                <input type=submit value="Delete">
+            </form>
+            <br><br>
+        </div>
+    {% endif %}
+    
+{% endfor %}
+</div>
 
-<br><br>
-
-<form action="{{ url_for('update', song_id=song.id) }}" style="display: inline;">
-<input type=submit value="Update">
-</form>
-<form action="{{ url_for('delete', song_id=song.id) }}" style="display: inline;">
-<input type=submit value="Delete">
-</form> 
-
-{% endif %}
-{% endfor %} 
 {% endfor %}
 
-<br><br><br>
+
         
 
 
