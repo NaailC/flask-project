@@ -1,8 +1,5 @@
 
 # Fundamental Project: Design and Create a CRUD application
-The project is to design, develop and deploy a CRUD application. 
-
-The application must allow the user to CREATE, READ, UPDATE AND DELETE the various fields/sections from a front-end system, that will apply changes directly to the back-end database system.
 
 ## Design
 
@@ -27,6 +24,8 @@ The final application will have 2 tables, which will have a many-to-one relation
 
 
 ### FINAL ERD (many-to-one):
+
+
 
 ## Risk Assessment
 
