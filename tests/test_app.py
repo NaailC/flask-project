@@ -23,7 +23,7 @@ class TestBase(TestCase):
 
     def setupsong(self):
         test_song = Song(songname = "TestSong", artist=1)
-        db.session.add(test_boxer)
+        db.session.add(test_songr)
         db.session.commit()
 
     def tearDown(self):
@@ -57,17 +57,51 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
 class TestRead(TestBase):
-    def test_read_Artist(self):
+    def test_read_artist(self):
         response = self.client.get(url_for("home"))
-        self.assertNotIn(b"TestArtist", response.data)
+        self.assertIn(b"TestArtist", response.data)
 
-    def test_read_Song(self):
+    def test_read_song(self):
         response = self.client.get(url_for("home"))
-        self.assertNotIn(b"TestSong", response.data)
+        self.assertIn(b"TestSong", response.data)
 
 class TestCreate(TestBase):
     def test_artist(self):
         response = self.client.post(
             url_for("newartist"),
-            data=[(artistname = "TestArtist2"), follow_redirects=True]
-        self.assertNotIn(b"TestSong", response.data)
+            data=[(artistname = "TestArtist"), follow_redirects=True]
+        self.assertNotIn(b"TestArtist", response.data)
+    
+    
+    def test_addsong(self):
+        response = self.client.post(
+            url_for("newsong"),
+            data=[(songname = TestSong2, artist=1), follow_redirects=True]
+            follow_redirects=True
+        )
+        self.assertIn(b"Add a Song", response.data)
+
+class TestUpdate(TestBase):
+    def test_update_song(self):
+        response = self.client.post(
+            url_for("update", id=1),
+            data=[(songname = "TestUpdateSong")],
+            follow_redirects=True
+        )
+        self.assertIn(b"Home", response.data)
+
+class TestDelete(TestBase):
+    def test_delete_song(self):
+        response = self.client.get(
+            url_for("delete", id=1),
+            follow_redirects=True
+        )
+        self.assertIn(b"Home", response.data)
+
+
+    def test_delete_artist(self):
+        response = self.client.get(
+            url_for("deleteartist", id=1),
+            follow_redirects=True
+        )
+        self.assertNotIn(b"Home", response.data)
