@@ -10,8 +10,11 @@ class TestBase(TestCase):
         app.config.update(
             SQLALCHEMY_DATABASE_URI="sqlite:///test.db",
             SECRET_KEY='TEST_SECRET_KEY',
-            DEBUG=True
-        )
+            DEBUG=True,
+            )
+        # app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///test.db"
+        # app.config["SECRET_KEY"]='TEST_SECRET_KEY'
+        
         return app
 
     def setUp(self):
@@ -52,7 +55,7 @@ class TestViews(TestBase):
 
     def test_deleteartist_get(self):
         response = self.client.get(url_for('deleteartist', id=1), follow_redirects=True)
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
 
 class TestRead(TestBase):
     def test_read_artist(self):
