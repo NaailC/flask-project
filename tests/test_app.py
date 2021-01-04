@@ -52,7 +52,7 @@ class TestViews(TestBase):
 
     def test_deleteartist_get(self):
         response = self.client.get(url_for('deleteartist', id=1), follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
 class TestRead(TestBase):
     def test_read_artist(self):
@@ -80,7 +80,7 @@ class TestCreate(TestBase):
 class TestUpdate(TestBase):
     def test_update_song(self):
         response = self.client.post(url_for("update", id=1),
-            data=dict(songname="TestUpdateSong", artist=1),
+            data=dict(songname="TestUpdateSong", artistname=1),
             follow_redirects=True)
         self.assertIn(b"TestUpdateSong", response.data)
 
@@ -93,6 +93,6 @@ class TestDelete(TestBase):
 
     def test_delete_artist(self):
         response = self.client.get(
-            url_for("deleteartist", id=1, artist=1),
+            url_for("deleteartist", id=1),
             follow_redirects=True)
         self.assertNotIn(b"TestArtist", response.data)
