@@ -19,6 +19,8 @@ To achieve the objective of the project, I aim to include the following:
 
 ### My Approach
 
+I have decided to create a database for Drum and Bass songs. Users will be able to add artists and songs.
+
 I will use Flask Framework in order to create the application
 
 I will use Pytest in order to write and use testing scripts
@@ -74,9 +76,11 @@ I will be using Flask Framework in order to create my application. Flask is a li
 
 ## Pytest 
 
+![Original ERD](project_png/pytest--cov1.png)
+
 ## Selenium
 
-## Jinja2 and HTML
+## Jinja2, HTML and Front End
 
 Jinja2 is a templating language used in conjuction with Python. It uses automatic HTML escaping, which will help prevent XSS attacks. It is easy to configure and debug, which makes it a perfect front-end to display the DnBDatabase.
 
