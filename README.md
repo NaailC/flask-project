@@ -33,6 +33,8 @@ I will use Jenkins in order to continuously test and integrate coding in my appl
 
 The final application will have 2 tables, which will have a many-to-one relationship. 
 
+![CI Pipeline](project_png/CIPipeline.png)
+
 ## ERD Diagrams
 
 ### ORIGINAL ERD (many-to-many):
