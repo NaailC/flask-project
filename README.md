@@ -33,8 +33,6 @@ I will use Jenkins in order to continuously test and integrate coding in my appl
 
 The final application will have 2 tables, which will have a many-to-one relationship. 
 
-![CI Pipeline](project_png/CIPipeline.png)
-
 ## ERD Diagrams
 
 ### ORIGINAL ERD (many-to-many):
@@ -80,7 +78,7 @@ I will be using Flask Framework in order to create my application. Flask is a li
 
 ![Original ERD](project_png/pytest--cov1.png)
 
-## Selenium
+Pytest allowed me to write scripts in order to check the status and functionality of the website as a coverage percentage. Automatic python logic is not tested for, which brings the coverage down. However, for my init, model and form modules, the coverage is 100%. The coverage on my route module is 81%, which is acceptable. 
 
 ## Jinja2, HTML and Front End
 
@@ -93,5 +91,7 @@ Jinja2 is a templating language used in conjuction with Python. It uses automati
 Git and Github are part of my version control system. Whenever I changed code, I made sure to push the changes to my github repository. This allowed me to constantly track my project. 
 
 ## Jenkins 
+
+Jenkins is tool which allows for continuous integration. As 
 
 ## GCP Server 
