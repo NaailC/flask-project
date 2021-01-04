@@ -1,9 +1,23 @@
 
 # Fundamental Project: Design and Create a CRUD application
 
-## Design
+## Brief
 
-This project aims to create a database of Drum and Bass songs by using Flask framework to create a CRUD application.
+This project sets a goal of creating a CRUD application.
+
+### Requirements
+
+To achieve the objective of the project, I aim to include the following:
+
+* A Jira Board
+* A database which contains at least two tables that model a relationship
+* Clear documentation of the design phase, app architecture, testing and risk assessment
+* A python-based functional web application that optimises practices and design principles
+* Unit testing and integration testing for the application
+* A front-end website, created using Flask
+* Code integrated into a Version Control System which will be built through a Jenkins CI Server and deployed to a cloud-based virtual machines
+
+### My Approach
 
 I will use Flask Framework in order to create the application
 
@@ -15,17 +29,21 @@ I will use HTML & Jinja2 in order to create a front-end to my application.
 
 I will use Jenkins in order to continuously test and integrate coding in my application.
 
-The final application will have 2 tables, which will have a many-to-one relationship
+The final application will have 2 tables, which will have a many-to-one relationship. 
 
 ## ERD Diagrams
 
 ### ORIGINAL ERD (many-to-many):
 
-
+My original design stored DnB Mixes, not songs. As such, I would need a set title and hyperlinks. I also intended on adding a genre table, in order to further catogorise mixes. However, I deceded this was too complex for the scope, so decided to modify the idea. 
 
 ### FINAL ERD (many-to-one):
 
+The final design will store DnB Songs and Artists in a many-to-one relationship. This is detailed in the ERD Diagram.
 
+
+
+Further designs could encompass a genre table, which would relate to songs. 
 
 ## Risk Assessment
 
@@ -43,7 +61,7 @@ The final application will have 2 tables, which will have a many-to-one relation
  
 ## Python
 
-I will be coding my application to work using Python 3.9, as well as various plugins which will create, maintain and update the website.
+I will be coding my application to work using Python 3.9, as well as various plugins which will create, maintain and update the website. Python is a scripting language that is simple, easy to use, and effective with regards to what is required in the scope.
 
 ## Flask Framework 
 
@@ -55,7 +73,7 @@ I will be using Flask Framework in order to create my application. Flask is a li
 
 ## Jinja2 and HTML
 
-I will code my web-pages using HTML. 
+Jinja2 is a templating language used in conjuction with Python. It uses automatic HTML escaping, which will help prevent XSS attacks. It is easy to configure and debug, which makes it a perfect front-end to display the DnBDatabase.
 
 ## Git and Github 
 

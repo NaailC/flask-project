@@ -1,5 +1,4 @@
 import unittest
-import pymysql
 from flask import url_for
 from flask_testing import TestCase
 
@@ -23,7 +22,7 @@ class TestBase(TestCase):
 
     def setupsong(self):
         test_song = Song(songname = "TestSong", artist=1)
-        db.session.add(test_songr)
+        db.session.add(test_song)
         db.session.commit()
 
     def tearDown(self):
@@ -67,41 +66,34 @@ class TestRead(TestBase):
 
 class TestCreate(TestBase):
     def test_artist(self):
-        response = self.client.post(
-            url_for("newartist"),
-            data=[(artistname = "TestArtist"), follow_redirects=True]
-        self.assertNotIn(b"TestArtist", response.data)
+        response = self.client.post(url_for("newartist"),
+            data=dict(artistname = "TestArtist2"), 
+            follow_redirects=True)
+        self.assertIn(b"TestArtist2", response.data)
     
     
     def test_addsong(self):
-        response = self.client.post(
-            url_for("newsong"),
-            data=[(songname = TestSong2, artist=1), follow_redirects=True]
-            follow_redirects=True
-        )
-        self.assertIn(b"Add a Song", response.data)
+        response = self.client.post(url_for("newsong"),
+            data=dict(songname="TestSong2", artist=1),
+            follow_redirects=True)
+        self.assertIn(b"TestSong2", response.data)
 
 class Test_Update(TestBase):
     def test_update_song(self):
-        response = self.client.post(
-            url_for("update", id=1),
-            data=[(songname = "TestUpdateSong")],
-            follow_redirects=True
-        )
-        self.assertIn(b"Home", response.data)
+        response = self.client.post(url_for("update", id=1),
+            data=dict(songname="TestUpdateSong", artist=1),
+            follow_redirects=True)
+        self.assertIn(b"TestUpdateSong", response.data)
 
 class Test_Delete(TestBase):
     def test_delete_song(self):
-        response = self.client.get(
-            url_for("delete", id=1),
-            follow_redirects=True
-        )
-        self.assertIn(b"Home", response.data)
+        response = self.client.get(url_for("delete", id=1),
+            follow_redirects=True)
+        self.assertIn(b"TestSong", response.data)
 
 
     def test_delete_artist(self):
         response = self.client.get(
             url_for("deleteartist", id=1),
-            follow_redirects=True
-        )
-        self.assertIn(b"Home", response.data)
+            follow_redirects=True)
+        self.assertNotIn(b"TestArtist", response.data)
