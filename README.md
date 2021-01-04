@@ -86,7 +86,11 @@ I will be using Flask Framework in order to create my application. Flask is a li
 
 Jinja2 is a templating language used in conjuction with Python. It uses automatic HTML escaping, which will help prevent XSS attacks. It is easy to configure and debug, which makes it a perfect front-end to display the DnBDatabase.
 
+![Front End](project_png/FrontEnd.png)
+
 ## Git and Github 
+
+Git and Github are part of my version control system. Whenever I changed code, I made sure to push the changes to my github repository. This allowed me to constantly track my project. 
 
 ## Jenkins 
 
