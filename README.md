@@ -35,13 +35,15 @@ The final application will have 2 tables, which will have a many-to-one relation
 
 ### ORIGINAL ERD (many-to-many):
 
+![Original ERD](project_png/OriginalERD.png)
+
 My original design stored DnB Mixes, not songs. As such, I would need a set title and hyperlinks. I also intended on adding a genre table, in order to further catogorise mixes. However, I deceded this was too complex for the scope, so decided to modify the idea. 
 
 ### FINAL ERD (many-to-one):
 
+![Final ERD](project_png/FinalERD.png)
+
 The final design will store DnB Songs and Artists in a many-to-one relationship. This is detailed in the ERD Diagram.
-
-
 
 Further designs could encompass a genre table, which would relate to songs. 
 
@@ -49,8 +51,11 @@ Further designs could encompass a genre table, which would relate to songs.
 
 ![Risk Assessment](project_png/RiskAssesment.png)
 
+![Matrix](project_png/RiskMatrix.png)
 
 ## Jira Board
+
+![Jira](project_png/Jira.png)
 
 ### User Stories 
 * As a DnB DJ, I would like to access lists of the back catalogues of artists I like
