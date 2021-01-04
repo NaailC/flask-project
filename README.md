@@ -47,7 +47,7 @@ Further designs could encompass a genre table, which would relate to songs.
 
 ## Risk Assessment
 
-
+![Risk Assessment](project_png/RiskAssesment.png)
 
 
 ## Jira Board

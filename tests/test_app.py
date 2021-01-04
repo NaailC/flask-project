@@ -14,14 +14,13 @@ class TestBase(TestCase):
         )
         return app
 
-    def setupartist(self):
+    def setUp(self):
+
         db.create_all()
-        test_artist = Artist(artistname = "TestArtist")
+        test_artist = Artist(artistname="TestArtist")
         db.session.add(test_artist)
         db.session.commit()
-
-    def setupsong(self):
-        test_song = Song(songname = "TestSong", artist=1)
+        test_song = Song(songname="TestSong", artist=1)
         db.session.add(test_song)
         db.session.commit()
 
@@ -39,7 +38,7 @@ class TestViews(TestBase):
         response = self.client.get(url_for('newsong'), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
    
-    def test_club_get(self):
+    def test_artist_get(self):
         response = self.client.get(url_for('newartist'), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
     
@@ -65,7 +64,7 @@ class TestRead(TestBase):
         self.assertIn(b"TestSong", response.data)
 
 class TestCreate(TestBase):
-    def test_artist(self):
+    def test_read_artist(self):
         response = self.client.post(url_for("newartist"),
             data=dict(artistname = "TestArtist2"), 
             follow_redirects=True)
@@ -78,22 +77,22 @@ class TestCreate(TestBase):
             follow_redirects=True)
         self.assertIn(b"TestSong2", response.data)
 
-class Test_Update(TestBase):
+class TestUpdate(TestBase):
     def test_update_song(self):
         response = self.client.post(url_for("update", id=1),
             data=dict(songname="TestUpdateSong", artist=1),
             follow_redirects=True)
         self.assertIn(b"TestUpdateSong", response.data)
 
-class Test_Delete(TestBase):
+class TestDelete(TestBase):
     def test_delete_song(self):
         response = self.client.get(url_for("delete", id=1),
             follow_redirects=True)
-        self.assertIn(b"TestSong", response.data)
+        self.assertNotIn(b"TestSong", response.data)
 
 
     def test_delete_artist(self):
         response = self.client.get(
-            url_for("deleteartist", id=1),
+            url_for("deleteartist", id=1, artist=1),
             follow_redirects=True)
         self.assertNotIn(b"TestArtist", response.data)
