@@ -19,6 +19,8 @@ To achieve the objective of the project, I aim to include the following:
 
 ### My Approach
 
+![Original ERD](project_png/CIPipeline.png)
+
 I have decided to create a database for Drum and Bass songs. Users will be able to add artists and songs.
 
 I will use Flask Framework in order to create the application
