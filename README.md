@@ -19,6 +19,8 @@ To achieve the objective of the project, I aim to include the following:
 
 ### My Approach
 
+![CI Pipeline](project_png/CIPipeline.png)
+
 I have decided to create a database for Drum and Bass songs. Users will be able to add artists and songs.
 
 I will use Flask Framework in order to create the application
@@ -74,11 +76,11 @@ I will be coding my application to work using Python 3.9, as well as various plu
 
 I will be using Flask Framework in order to create my application. Flask is a lightweight Web Server Gateway Interface used for Python. It will allow me to create a friendly user interface capable of completing CRUD requests. It will also allow me to route to different pages on my website, using the @app.route command. 
 
-## Pytest 
+## Pytest and Jenkins
 
 ![Original ERD](project_png/pytest--cov1.png)
 
-Pytest allowed me to write scripts in order to check the status and functionality of the website as a coverage percentage. Automatic python logic is not tested for, which brings the coverage down. However, for my init, model and form modules, the coverage is 100%. The coverage on my route module is 81%, which is acceptable. 
+Pytest allowed me to write scripts in order to check the status and functionality of the website as a coverage percentage. Automatic python logic is not tested for, which brings the coverage down. However, for my init, model and form modules, the coverage is 100%. The coverage on my route module is 81%, which is acceptable. Jenkins is tool which allows for continuous integration. As code is pushed to my Git Repository, Jenkins will automatically run my Pytests 
 
 ## Jinja2, HTML and Front End
 
@@ -88,10 +90,16 @@ Jinja2 is a templating language used in conjuction with Python. It uses automati
 
 ## Git and Github 
 
-Git and Github are part of my version control system. Whenever I changed code, I made sure to push the changes to my github repository. This allowed me to constantly track my project. 
-
-## Jenkins 
-
-Jenkins is tool which allows for continuous integration. As 
+Git and Github are part of my version control system. Whenever I changed code, I made sure to push the changes to my github repository. This allowed me to constantly track, revert and backup my project. 
 
 ## GCP Server 
+
+Google Cloud allowed me to provision servers for my application, jenkins server and SQL Databaase. The Cloud will allow me to easily spin up my app, as well transfer data should anything start to go wrong. 
+
+## Aknowledgements
+
+Harrky Volker: Teaching me Python and HTML languages
+Nathan Forester: Teaching me Python and HTML languages
+Sonny Milbourne: Teaching me Googling Skills
+DnBCommunity: Providing good songs which inspired me to make this app
+QA Community: Providing me with material to code from 
