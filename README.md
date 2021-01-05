@@ -23,7 +23,7 @@ To achieve the objective of the project, I aim to include the following:
 
 I have decided to create a database for Drum and Bass songs. Users will be able to add artists and songs.
 
-I will use Flask Framework in order to create the application
+I will use Flask Framework in order to create and template the application
 
 I will use Pytest in order to write and use testing scripts
 
