@@ -19,7 +19,11 @@ To achieve the objective of the project, I aim to include the following:
 
 ### My Approach
 
+<<<<<<< HEAD
 ![CI Pipeline](project_png/CIPipeline.png)
+=======
+![Original ERD](project_png/CIPipeline.png)
+>>>>>>> a7e39775811f7237bbd252b13521e00ee995f9e3
 
 I have decided to create a database for Drum and Bass songs. Users will be able to add artists and songs.
 
